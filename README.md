@@ -40,10 +40,12 @@ optimize!(m)
 
 df = report(m)
 ```
-The `:base_name` column can be used to extract specific variables using DataFrame methods. 
+The `:base_name` column can be used to extract specific variables using DataFrame methods. Here is an example of extracting the `x`
+variable and sorting by margin, largest to smallest.
 ```
 df |>
     x -> subset(x, 
         :base_name => ByRow(==("x"))
-    )
+    ) |>
+    x -> sort(x, :margin, rev=true)
 ```
