@@ -12,7 +12,7 @@ This returns a DataFrame with four columns, `:var`,
 
 # Example 
 
-```
+```julia
 using JuMP
 
 using JuMP_report
@@ -42,7 +42,7 @@ df = report(m)
 ```
 The `:base_name` column can be used to extract specific variables using DataFrame methods. Here is an example of extracting the `x`
 variable and sorting by margin, largest to smallest.
-```
+```julia
 df |>
     x -> subset(x, 
         :base_name => ByRow(==("x"))
